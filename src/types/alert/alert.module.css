@@ -1,0 +1,82 @@
+
+
+
+
+.title{
+     background-color: transparent !important;
+     display: flex !important;
+     justify-content: flex-start !important;
+     
+}
+
+/*
+* HTML CONTAINER
+*/
+.htmlContainer{
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center;
+}
+
+.popupSuccess{
+    background-color: #40784B !important;
+    padding: 0 !important;
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    color: #fff !important;
+}
+.SuccessConfirmButton{
+    width: 6rem !important;
+    background-color: #40784B !important;
+}
+
+
+
+/**
+ * Error Alert CSS
+ */
+
+.popupError{
+    background-color: #c4442d !important;
+    padding: 0 !important;
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    color: #fff !important;
+}
+
+.ErrorConfirmButton{
+    width: 6rem !important;
+    background-color: #c4442d !important;
+}
+
+
+/**
+ * Warning Alert CSS
+ */
+
+
+ .popupWarning{
+    background-color: #eb7d35 !important;
+    padding: 0px !important;
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    color: #fff !important;
+}
+.WarningConfirmButton{
+    width: 6rem !important;
+    background-color: #eb7d35 !important;
+}
+ 
+
+/* 
+* Footer-Section and Buttons Container
+*/
+.actionsRight {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    width: 100% !important;
+    background-color: white !important;
+}

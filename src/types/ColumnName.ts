@@ -1,0 +1,20 @@
+export default {
+  name: "name",
+  contact: "contact",
+  bank: "bank",
+  upi: "upi",
+  patientReferred: "patients referred",
+  profile: "profile",
+  address: "address",
+  email: "email",
+  telephone: "telephone",
+  phone: "phone",
+  departments: "departments",
+  doctors: "doctors",
+  beds: "beds",
+  actions: "actions",
+  uniqueId: "unique id",
+  gender: "gender",
+  attendant: "attendant",
+  attendantContact:"attendant contact"
+}
