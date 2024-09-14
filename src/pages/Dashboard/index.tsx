@@ -3,12 +3,14 @@ import MotionBox from "@/components/framerMotion";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import ReactPlayer from "react-player";
 import { useEffect, useState } from "react";
+import video from "/public/assets/videos/dashboard.mp4"
 
 const Dashboard = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
   useEffect(() => {
     setIsMounted(true);
+    console.log(video);
   }, []);
 
   if (!isMounted) {
@@ -19,7 +21,7 @@ const Dashboard = () => {
     <DashboardLayout>
       <MotionBox duration={2}>
         <ReactPlayer
-          url={"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"}
+          url={video}
           playing={true}
           loop={false}
           controls={true}
