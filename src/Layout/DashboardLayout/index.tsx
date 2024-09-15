@@ -1,8 +1,9 @@
 "use client"
 import React from 'react'
-import Appbar from "../../components/appbar";
 import { Box, Typography } from "@mui/material";
 import useColors from '../../hooks/useColors';
+import AppbarComp from '@/components/appbar';
+import MotionBox from '@/components/framerMotion';
 
 type Props = {
   children?: React.ReactNode;
@@ -13,7 +14,16 @@ const DashboardLayout = (props: Props) => {
   return (
     <React.Fragment>
       <main className="content">
-        <Appbar />
+      <MotionBox
+        initialY="-100vh" 
+        animateY={0}
+        transitionType="spring"
+        stiffness={60}
+        damping={15}
+        delay={0.4}
+      >
+        <AppbarComp/>
+      </MotionBox>
         <Box sx={{minHeight:"calc(100vh - 60px)"}}>{props.children}</Box>
         <Box
           sx={{

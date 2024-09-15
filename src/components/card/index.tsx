@@ -1,12 +1,11 @@
 import { Card, CardContent, Typography, Box, SxProps, } from "@mui/material";
-import { StringOrNumber } from "../../types/common";
 import { Theme } from "@emotion/react";
 import useColors from "../../hooks/useColors";
 import { ReactNode } from "react";
 
 type Props = {
   title?: string;
-  content: StringOrNumber;
+  content: string | number;
   icon?: ReactNode;
   titleIcon?: ReactNode;
   sx?: SxProps<Theme>;

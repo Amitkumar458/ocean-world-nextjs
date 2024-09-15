@@ -25,3 +25,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.gradient-text {
+  background: linear-gradient(58deg, rgba(184,109,255,1) 0%, rgba(156,8,240,1) 32%, rgba(0,73,242,1) 56%, rgba(5,49,170,1) 81%, rgba(12,0,242,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  test-fill-color: transparent;
+}

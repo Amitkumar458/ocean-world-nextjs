@@ -1,5 +1,5 @@
 "use client"
-import React, { ReactNode, CSSProperties } from 'react';
+import React, { ReactNode, CSSProperties, ReactElement, RefObject } from 'react';
 import { motion, Transition } from 'framer-motion';
 
 // Define the types for the props
@@ -11,7 +11,9 @@ interface MotionBoxProps {
   damping?: number;                  // Damping for the spring transition
   duration?: number;                 // Duration for the tween transition
   style?: CSSProperties;             // Custom CSS styles for the component
-  children?: ReactNode;              // Children to render inside the component
+  children?: ReactNode;
+  delay?: number; // Delay
+  ref? : RefObject<HTMLDivElement>;
 }
 
 // Base reusable motion component
@@ -22,14 +24,16 @@ const MotionBox: React.FC<MotionBoxProps> = ({
   stiffness = 50,                    // Default stiffness for spring
   damping = 10,                      // Default damping for spring
   duration = 1,                      // Default duration for tween
+  delay = 0,                         // Default delay for tween
   style = {},                        // Custom styles for the component
-  children,                          // Children to render inside
+  children, 
+  ref,
 }) => {
-  // Define transition based on type
   const springTransition: Transition = {
     type: 'spring',
     stiffness,
     damping,
+    delay
   };
 
   const tweenTransition: Transition = {
@@ -39,16 +43,17 @@ const MotionBox: React.FC<MotionBoxProps> = ({
 
   return (
     <motion.div
-      initial={{ y: initialY }}               // Set initial Y position
-      animate={{ y: animateY }}               // Set target Y position
-      transition={transitionType === 'spring' ? springTransition : tweenTransition} // Choose transition type
+      initial={{ y: initialY }}
+      animate={{ y: animateY }}
+      transition={transitionType === 'spring' ? springTransition : tweenTransition}
       style={{
-        width: '100%',                       // Default width
-        height: '100%',                      // Default height
-        backgroundColor: 'white',          // Default background color
-        margin: '0 auto',                     // Center the box
-        ...style,                             // Override with custom styles
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'white',
+        margin: '0 auto',
+        ...style,
       }}
+      ref={ref}
     >
       {children}
     </motion.div>
