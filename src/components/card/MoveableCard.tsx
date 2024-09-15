@@ -9,7 +9,7 @@ type Props = {
     style? : object;
 };
 
-const MoveableCard = ({ title = "title", content = "cardContent", src  , style}: Readonly<Props>) => {
+const MoveableCard = ({ title, content, src  , style}: Readonly<Props>) => {
     const [rotation, setRotation] = useState({ x: 0, y: 0 });
     const [borderColor, setBorderColor] = useState("border-transparent");
     const [bgColor, setBgColor] = useState("bg-purple-200");
@@ -57,7 +57,7 @@ const MoveableCard = ({ title = "title", content = "cardContent", src  , style}:
 
     return (
         <motion.div
-            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+            className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-xl md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 lg:h-50"
             animate={{
                 rotateX: rotation.x,
                 rotateY: rotation.y,
@@ -70,11 +70,11 @@ const MoveableCard = ({ title = "title", content = "cardContent", src  , style}:
                 ...style,
             }}
         >
-            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={src} alt="imges" />
-            <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
-                <p className="mb-3 font-sans text-lg text-gray-800 dark:text-gray-400">{content}</p>
-            </div>
+            <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded" src={src} alt="imges" />
+            {(title || content) && <div className="flex flex-col justify-between p-4 leading-normal">
+                {title && <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>}
+                {content && <p className="mb-3 font-sans text-lg text-gray-800 dark:text-gray-400">{content}</p>}
+            </div>}
         </motion.div>
     );
 };

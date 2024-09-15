@@ -45,17 +45,18 @@ const Dashboard = () => {
         <h1 className="text-4xl m-4 text-center">
           More About Game
         </h1>
-        <div className="flex flex-col sm:flex-row items-center mx-4">
+        <div className="flex flex-col justify-center sm:flex-row items-center mx-4">
           <MoveableCard
             title="Multi Language Support and Dynamic Content for different age groups"
-            content="Our Game Support Multi Language by this we can reach a broader audience without the need for separate versions. It also support dynamic content so that different age groups can intract play and enjoy."
+            content="Our game supports multiple languages, allowing us to reach a wider audience without the need for separate versions. It support dynamic content so that different age groups can intract play and enjoy."
             src={"https://picsum.photos/200/300"}
+            style={{margin:'8px'}}
           />
           <MoveableCard
-            title="Multi Language Support and Dynamic Content for different age groups"
-            content="Our Game Support Multi Language by this we can reach a broader audience without the need for separate versions. It also support dynamic content so that different age groups can intract play and enjoy."
+            title="3D Game Enviroment With Different Challanging Tasks"
+            content="User can intract with 3D world, including Ocean, Beach, and Islands. While completing various tasks, such as solving puzzles, Questions, managing resources we teach the player's about how to protect our oceans and keep our enviroment clean."
             src={"https://picsum.photos/198/300"}
-            style={{margin: '8px'}}
+            style={{margin:'8px'}}
           />
         </div>
       </MotionBox>
