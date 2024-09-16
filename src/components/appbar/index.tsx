@@ -1,30 +1,44 @@
-"use client"
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Divider, Drawer, List, ListItem, ListItemButton, ListItemText, MenuItem } from '@mui/material';
-const pages = ['About', 'Contact' , 'Blogs'];
-const settings = ['Account', 'Logout'];
+"use client";
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuIcon from "@mui/icons-material/Menu";
+import {
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+} from "@mui/material";
+import { Home, Explore, School, Info } from "@mui/icons-material";
+const pages = ["Home", "Explore Oceans", "Learn Ocean Literacy", "About"];
+const settings = ["Account", "Logout"];
 
 function AppbarComp() {
-  
   const user = { success: true };
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event: any) => {
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
+    null
+  );
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
+    null
+  );
+  const drawerWidth = 240;
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    console.log(event.currentTarget);
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: any) => {
+  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -37,25 +51,41 @@ function AppbarComp() {
   };
 
   const drawer = (
-    <Box onClick={handleOpenNavMenu} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+    <Box onClick={handleOpenNavMenu} sx={{ textAlign: "left" }}>
+      <Typography
+        variant="h6"
+        sx={{ my: 2, paddingInline: "30px", fontSize: "25px" }}
+      >
         Ocean World
       </Typography>
       <Divider />
       <List>
-        {pages.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+        {pages.map((text, index) => (
+          <ListItem disablePadding key={text}>
+            <ListItemButton>
+              <ListItemIcon sx={{ color: "#D4F1F4" }}>
+                {index === 0 && <Home />}
+                {index === 1 && <Explore />}
+                {index === 2 && <School />}
+                {index === 3 && <Info />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
+   
     </Box>
   );
 
   return (
-    <AppBar position="static" sx={{ background: 'linear-gradient(305deg, rgba(255,230,230,1) 0%, rgba(127,130,224,1) 99%)' }}>
+    <AppBar
+      position="static"
+      sx={{
+        background:
+          "linear-gradient(305deg, rgba(255,230,230,1) 0%, rgba(127,130,224,1) 99%)",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -65,18 +95,18 @@ function AppbarComp() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".1rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             Ocean World
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -96,9 +126,16 @@ function AppbarComp() {
                   keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
-                  display: { xs: 'block', sm: 'none' },
-                  '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 280 },
+                  width: drawerWidth,
+                  flexShrink: 0,
+                  "& .MuiDrawer-paper": {
+                    width: drawerWidth,
+                    boxSizing: "border-box",
+                    backgroundColor: "#1A374D", // Ocean deep co
+                    color: "#D4F1F4", // Light sea 
+                  },
                 }}
+              
               >
                 {drawer}
               </Drawer>
@@ -111,22 +148,27 @@ function AppbarComp() {
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.1rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".1rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
             Ocean World
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
                 key={page}
-                sx={{ my: 2, color: 'white', fontWeight: 600, display: 'block' }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  fontWeight: 600,
+                  display: "block",
+                }}
               >
                 {page}
               </Button>
@@ -134,25 +176,25 @@ function AppbarComp() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {user?.success ?
+            {user?.success ? (
               <>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar sx={{ bgcolor: '#c0aaf2' }}></Avatar>
+                    <Avatar sx={{ bgcolor: "#c0aaf2" }}></Avatar>
                   </IconButton>
                 </Tooltip>
                 <Menu
-                  sx={{ mt: '45px' }}
+                  sx={{ mt: "45px" }}
                   id="menu-appbar"
                   anchorEl={anchorElUser}
                   anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                    vertical: "top",
+                    horizontal: "right",
                   }}
                   keepMounted
                   transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
+                    vertical: "top",
+                    horizontal: "right",
                   }}
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
@@ -164,7 +206,16 @@ function AppbarComp() {
                   ))}
                 </Menu>
               </>
-              : <Button variant='contained' sx={{ background: '#815cd2' }} color='error' disableElevation>Login</Button>}
+            ) : (
+              <Button
+                variant="contained"
+                sx={{ background: "#815cd2" }}
+                color="error"
+                disableElevation
+              >
+                Login
+              </Button>
+            )}
           </Box>
         </Toolbar>
       </Container>
