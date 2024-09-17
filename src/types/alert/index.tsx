@@ -35,7 +35,7 @@ export function SuccessAlert(
       actions: styles.actionsRight,
       popup: styles.popupSuccess,
     },
-  }).then((_) => {
+  }).then(() => {
     onSuccess && onSuccess();
   });
 };
@@ -65,7 +65,7 @@ export function SuccessAlertWithCustomMessage(
       actions: styles.actionsRight,
       popup: styles.popupSuccess,
     },
-  }).then((_) => {
+  }).then(() => {
     onSuccess && onSuccess();
   });
 };

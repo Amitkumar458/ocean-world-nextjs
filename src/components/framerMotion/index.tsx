@@ -1,5 +1,5 @@
 "use client"
-import React, { ReactNode, CSSProperties, ReactElement, RefObject } from 'react';
+import React, { ReactNode, CSSProperties, RefObject } from 'react';
 import { motion, Transition } from 'framer-motion';
 
 // Define the types for the props
